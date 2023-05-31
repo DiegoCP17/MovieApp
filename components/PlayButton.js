@@ -13,11 +13,11 @@ class PlayButton extends React.PureComponent {
 }
 const styles = StyleSheet.create({
   button: {
-    alignContent: 'center',
+    alignContent: "center",
     borderRadius: 50,
     width: 50,
     padding: 10,
-    backgroundColor: "#ffc0cb"
+    backgroundColor: "#2ECC71",
   },
 });
 const Colors = {

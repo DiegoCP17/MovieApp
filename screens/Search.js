@@ -35,7 +35,7 @@ const Search = ({ navigation }) => {
         onPress={() => navigation.goBack()}
         style={styles.backButton}
       >
-        <Icon name="chevron-back-outline" size={24} color="#fff" />
+        <Icon name="chevron-back-outline" size={24} color="#E74C3C" />
       </TouchableOpacity>
 
       <View style={styles.searchContainer}>
@@ -49,7 +49,7 @@ const Search = ({ navigation }) => {
           onPress={() => onSubmit(text)}
           style={styles.searchButton}
         >
-          <Icon name="search-outline" size={24} color="#fff" />
+          <Icon name="search-outline" size={24} color="#2ECC71" />
         </TouchableOpacity>
       </View>
 
@@ -90,8 +90,10 @@ const styles = StyleSheet.create({
     backgroundColor: "#0E5F9B",
   },
   backButton: {
-    paddingHorizontal: 10,
-    paddingVertical: 15,
+    paddingHorizontal: 20,
+    paddingVertical: 20,
+    paddingTop: 50,
+    
   },
   searchContainer: {
     flexDirection: "row",
@@ -118,7 +120,7 @@ const styles = StyleSheet.create({
   },
   searchItems: {
     flex: 1,
-    padding: 10,
+    padding: 5,
   },
   noResults: {
     flex: 1,

@@ -28,25 +28,25 @@ class Card extends React.PureComponent {
 }
 
 const styles = StyleSheet.create({
-    container: {
-      padding: 5,
-      position: 'relative',
-      alignItems: 'center',
-      height: 200,
-      marginBottom: 8,
-      backgroundColor: '#ffc0cb',
-    },
-    image: {
-      height: 200,
-      width: 120,
-      borderRadius: 20,
-    },
-    movieName: {
-      position: 'absolute',
-      width: 100,
-      top: 10,
-      textAlign: 'center',
-    },
+  container: {
+    padding: 5,
+    position: "relative",
+    alignItems: "center",
+    height: 200,
+    marginBottom: 8,
+    backgroundColor: "##5DADE2",
+  },
+  image: {
+    height: 200,
+    width: 120,
+    borderRadius: 20,
+  },
+  movieName: {
+    position: "absolute",
+    width: 100,
+    top: 10,
+    textAlign: "center",
+  },
 });
 
 Card.propTypes = propTypes;

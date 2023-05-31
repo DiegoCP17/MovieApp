@@ -141,6 +141,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    padding: 50,
+    backgroundColor: "#0E5F9B",
   },
   sliderStyle: {
     height: 0,
@@ -153,9 +155,10 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#0E5F9B",
   },
   title: {
-    color: "#0E5F9Bccr",
+    color: "#0E5F9B",
     fontWeight: "bold",
     marginBottom: 10,
   },

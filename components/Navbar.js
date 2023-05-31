@@ -65,12 +65,12 @@ const propTypes = {
     },
   });
   const Colors = {
-    backgroundColor: '#FFC0CB',
-    black: '#000000',
-    white: '#ffffff',
-    lightGray: '#ccc',
-    primary: '#4481FC',
-    danger: '#F5365C',
+    backgroundColor: "#5DADE2",
+    black: "#000000",
+    white: "#ffffff",
+    lightGray: "#ccc",
+    primary: "#4481FC",
+    danger: "#F5365C",
   };
   Navbar.propTypes = propTypes;
   Navbar.defaultProps = defaultProps;

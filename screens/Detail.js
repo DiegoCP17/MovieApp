@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   ScrollView,
@@ -9,20 +9,19 @@ import {
   View,
   Modal,
   Pressable,
-} from 'react-native';
-import PlayButton from '../components/PlayButton';
-import StarRating from 'react-native-star-rating';
-import { getMovie } from '../services/services';
-import dateFormat from 'dateformat';
-import VideoD from '../components/VideoD';
-import VideoPlayer from 'react-native-video-controls';
-import Video from 'react-native-video';
-import StopButton from '../components/StopButton';
+} from "react-native";
+import PlayButton from "../components/PlayButton";
+import StarRating from "react-native-star-rating";
+import { getMovie } from "../services/services";
+import dateFormat from "dateformat";
+import VideoD from "../components/VideoD";
+import VideoPlayer from "react-native-video-controls";
+import Video from "react-native-video";
+import StopButton from "../components/StopButton";
 
+const height = Dimensions.get("screen").height;
 
-const height = Dimensions.get('screen').height;
-
-const Detail = ({route, navigation}) => {
+const Detail = ({ route, navigation }) => {
   const movieId = route.params.movieId;
 
   const [movieDetail, setMovieDetail] = useState();
@@ -30,7 +29,7 @@ const Detail = ({route, navigation}) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   useEffect(() => {
-    getMovie(movieId).then(movieData => {
+    getMovie(movieId).then((movieData) => {
       setMovieDetail(movieData);
       setLoaded(true);
     });
@@ -47,7 +46,7 @@ const Detail = ({route, navigation}) => {
   return (
     <React.Fragment>
       {loaded && (
-        <View>
+        <View style={styles.containerPrincipal}>
           <ScrollView>
             <Image
               resizeMode="cover"
@@ -56,7 +55,7 @@ const Detail = ({route, navigation}) => {
                 movieDetail.poster_path
                   ? {
                       uri:
-                        'https://image.tmdb.org/t/p/w500' +
+                        "https://image.tmdb.org/t/p/w500" +
                         movieDetail.poster_path,
                     }
                   : placeholderImage
@@ -69,7 +68,7 @@ const Detail = ({route, navigation}) => {
               <Text style={styles.movieTitle}>{movieDetail.title}</Text>
               {movieDetail.genres && (
                 <View style={styles.genresContainer}>
-                  {movieDetail.genres.map(genre => {
+                  {movieDetail.genres.map((genre) => {
                     return (
                       <Text style={styles.genre} key={genre.id}>
                         {genre.name}
@@ -81,32 +80,31 @@ const Detail = ({route, navigation}) => {
               <StarRating
                 disabled={true}
                 maxStars={5}
-                starSize={30}
+                starSize={25}
                 rating={movieDetail.vote_average / 2}
-                fullStarColor={'gold'}
+                fullStarColor={"gold"}
               />
               <Text style={styles.overview}>{movieDetail.overview}</Text>
 
               <Text style={styles.release}>
-                {'Release date: ' +
-                  dateFormat(movieDetail.release_date, 'mmmm dS, yyyy')}
+                {"Release date: " +
+                  dateFormat(movieDetail.release_date, "mmmm dS, yyyy")}
               </Text>
             </View>
           </ScrollView>
           <Modal
-            supportedOrientations={['portrait', 'landscape']}
+            supportedOrientations={["portrait", "landscape"]}
             animationType="slide"
-            visible={modalVisible}>
+            visible={modalVisible}
+          >
             <View style={styles.videoModal}>
-             
               {/* <VideoD onClose={videoShown} /> */}
-             {/* <VideoPlayer
+              {/* <VideoPlayer
              source={{uri: 'https://vjs.zencdn.net/v/oceans.mp4'}}/> */}
-             <Pressable>
-              <Text>Esto debería ser un modal</Text>
-              <StopButton handlePress={videoStop} />
-             </Pressable>
-              
+              <Pressable>
+                <Text>Esto debería ser un modal</Text>
+                <StopButton handlePress={videoStop} />
+              </Pressable>
             </View>
           </Modal>
         </View>
@@ -119,52 +117,57 @@ const Detail = ({route, navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   image: {
-    height: height / 2.5,
+    height: height / 2.0,
   },
   movieTitle: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginTop: 10,
     marginBottom: 10,
+    paddingTop: 10,
+    textAlign: "center",
   },
   genresContainer: {
-    flexDirection: 'row',
-    alignContent: 'center',
+    flexDirection: "row",
+    alignContent: "center",
     marginTop: 20,
     marginBottom: 20,
   },
   genre: {
     marginBottom: 5,
     marginRight: 10,
-    fontWeight: 'bold',
-    color: '#fff',
+    fontWeight: "bold",
+    color: "#fff",
+    paddingLeft: 15,
   },
   container: {
-    flex: 1,
-    backgroundColor: '#FFC0CB',
+    backgroundColor: "#0E5F9B",
+    height: "100%",
   },
   overview: {
     padding: 15,
   },
   release: {
-    fontWeight: 'bold',
-    color: '#fff',
+    fontWeight: "bold",
+    color: "#fff",
+    paddingLeft: 15,
+    paddingBottom: 15,
+    textAlign:"center",
   },
   playButton: {
-    position: 'absolute',
-    top: -25,
-    right: 20,
+    position: "absolute",
+    top: -30,
+    right: 10,
   },
   videoModal: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#000',
-
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#000",
   },
 });
 
